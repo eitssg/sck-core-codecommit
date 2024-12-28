@@ -20,11 +20,11 @@ boto3 = ">=1.35.87"
 
 [tool.poetry.dependencies.sck-core-api]
 path = "../sck-core-api"
-depend = true
+develop = true
 
 [tool.poetry.dependencies.sck-core-framework]
 path = "../sck-core-framework"
-depend = true
+develop = true
 [[tool.poetry.source]]
 name = "nexus"
 url = "https://monster-jj.jvj28.com:9091/repository/pypi/simple/"
