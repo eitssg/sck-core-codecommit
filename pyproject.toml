@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "core-codecommit-listener"
+version = "0.1.0"
+description = "Core automstion codecommit listener"
+authors = ["James Barwick <jbarwick@me.com>"]
+license = "MIT"
+readme = "README.md"
+maintainers = [ "James Barwick <jbarwick@me.com>" ]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+urllib3 = "^2.2.3"
+boto3 = "^1.35.50"
+core-api = {path = "../core-api", develop = true}
+
+[[tool.poetry.source]]
+name = "nexus"
+url = "https://monster-jj.jvj28.com:9091/repository/pypi/simple/"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "explicit"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+flake8 = "^7.1.1"
+cfn-lint = "^1.18.4"
+black = "^24.10.0"
+pytest-dotenv = "^0.5.2"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+bump = true
+ignore-untracked = true
+style = "semver"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry-dynamic-versioning.files."core_codecommit_listener/_version.py"]
+persistent-substitution = true
+initial-content = """
+  \"\"\"
+  This is the version informatooin for this template
+  \"\"\"
+  __version__ = "0.0.0"
+  __version_tuple__ = (0, 0, 0)
+"""
