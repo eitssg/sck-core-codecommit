@@ -1,28 +1,34 @@
 [tool.poetry]
-name = "core-codecommit-listener"
-version = "0.1.0"
+name = "sck-core-codecommit"
+version = "0.0.3"
 description = "Core automstion codecommit listener"
 authors = ["James Barwick <jbarwick@me.com>"]
 license = "MIT"
 readme = "README.md"
 maintainers = [ "James Barwick <jbarwick@me.com>" ]
+include = ["core_codecommit/_version.py"]
+keywords = ["sck", "core", "aws", "cloud", "automation"]
+
+[[tool.poetry.packages]]
+include = "core_codecommit"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 requests = "^2.32.3"
 urllib3 = "^2.2.3"
-boto3 = "^1.35.50"
-core-api = {path = "../core-api", develop = true}
+boto3 = ">=1.35.87"
 
+[tool.poetry.dependencies.sck-core-api]
+path = "../sck-core-api"
+depend = true
+
+[tool.poetry.dependencies.sck-core-framework]
+path = "../sck-core-framework"
+depend = true
 [[tool.poetry.source]]
 name = "nexus"
 url = "https://monster-jj.jvj28.com:9091/repository/pypi/simple/"
 priority = "primary"
-
-
-[[tool.poetry.source]]
-name = "PyPI"
-priority = "explicit"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -41,7 +47,7 @@ style = "semver"
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"
 
-[tool.poetry-dynamic-versioning.files."core_codecommit_listener/_version.py"]
+[tool.poetry-dynamic-versioning.files."core_codecommit/_version.py"]
 persistent-substitution = true
 initial-content = """
   \"\"\"
