@@ -5,7 +5,6 @@ AWS_PROFILE=automation AWS_REGION=ap-southeast-1 ./test.py
 
 import boto3
 import time
-import traceback
 import core_logging as log
 
 import core_framework as util
@@ -151,6 +150,5 @@ def handler(event: dict, context) -> dict:
         return {"Responses": responses}
 
     except Exception as e:
-        traceback.print_exc()
         print("Error: {}".format(e))
         raise e
