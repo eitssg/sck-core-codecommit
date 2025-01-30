@@ -6,7 +6,7 @@ authors = ["James Barwick <jbarwick@me.com>"]
 license = "MIT"
 readme = "README.md"
 maintainers = [ "James Barwick <jbarwick@me.com>" ]
-include = ["core_codecommit/_version.py"]
+include = ["core_codecommit/version.py"]
 keywords = ["sck", "core", "aws", "cloud", "automation"]
 
 [[tool.poetry.packages]]
@@ -38,16 +38,10 @@ bump = true
 ignore-untracked = true
 style = "semver"
 
+[tool.poetry-dynamic-versioning.substitution]
+files = ["core_codecommit/__init__.py"]
+
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"
 
-[tool.poetry-dynamic-versioning.files."core_codecommit/_version.py"]
-persistent-substitution = true
-initial-content = """
-  \"\"\"
-  This is the version informatooin for this template
-  \"\"\"
-  __version__ = "0.0.0"
-  __version_tuple__ = (0, 0, 0)
-"""

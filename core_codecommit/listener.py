@@ -10,7 +10,7 @@ import core_logging as log
 import core_framework as util
 from core_framework.models import DeploymentDetails
 
-from ._version import __version__
+from core_codecommit import __version__
 
 
 def __get_deployment_details(record: dict) -> DeploymentDetails:
