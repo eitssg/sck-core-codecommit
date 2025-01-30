@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sck-core-codecommit"
-version = "0.0.3"
+version = "0.0.4"
 description = "Core automstion codecommit listener"
 authors = ["James Barwick <jbarwick@me.com>"]
 license = "MIT"
@@ -17,14 +17,9 @@ python = "^3.12"
 requests = "^2.32.3"
 urllib3 = "^2.2.3"
 boto3 = ">=1.35.93"
+sck-core-framework = "^0.0.4"
+sck-core-api = "^0.0.4"
 
-[tool.poetry.dependencies.sck-core-api]
-path = "../sck-core-api"
-develop = true
-
-[tool.poetry.dependencies.sck-core-framework]
-path = "../sck-core-framework"
-develop = true
 [[tool.poetry.source]]
 name = "nexus"
 url = "https://monster-jj.jvj28.com:9091/repository/pypi/simple/"
