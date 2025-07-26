@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sck-core-codecommit"
-version = "0.0.6"
+version = "0.0.7-pre.1+e6750b8"
 description = "Core automstion codecommit listener"
 authors = ["James Barwick <jbarwick@me.com>"]
 license = "MIT"
