@@ -44,7 +44,9 @@ start_build_response = {
             "type": "LINUX_CONTAINER",
             "image": "aws/codebuild/standard:4.0",
             "computeType": "BUILD_GENERAL1_SMALL",
-            "environmentVariables": [{"name": "ENV_VAR_NAME", "value": "value", "type": "PLAINTEXT"}],
+            "environmentVariables": [
+                {"name": "ENV_VAR_NAME", "value": "value", "type": "PLAINTEXT"}
+            ],
         },
         "logs": {
             "groupName": "/aws/codebuild/my-project",
@@ -100,7 +102,11 @@ class MockAWSClient:
             {"name": "APP", "value": "my-repo", "type": "PLAINTEXT"},
             {"name": "BRANCH", "value": "main", "type": "PLAINTEXT"},
             {"name": "BUILD", "value": "abcdef1", "type": "PLAINTEXT"},
-            {"name": "BUILD_NUMBER", "value": "1", "type": "PLAINTEXT"},  # Fixed: expect string "1"
+            {
+                "name": "BUILD_NUMBER",
+                "value": "1",
+                "type": "PLAINTEXT",
+            },  # Fixed: expect string "1"
             {
                 "name": "BUCKET_NAME",
                 "value": "test-core-automation-master",
@@ -152,7 +158,10 @@ def mock_util_functions():
     :yields: Dictionary of mocked utility functions
     :rtype: dict
     """
-    with patch("core_framework.common.get_bucket_name", return_value="test-core-automation-master") as mock_bucket, patch(
+    with patch(
+        "core_framework.common.get_bucket_name",
+        return_value="test-core-automation-master",
+    ) as mock_bucket, patch(
         "core_framework.common.get_region", return_value="us-west-2"
     ) as mock_region:
         yield {"get_bucket_name": mock_bucket, "get_region": mock_region}
@@ -214,7 +223,13 @@ def codecommit_event():
     }
 
 
-def test_codecommit_listener_success(mock_boto3_clients, mock_time, mock_util_functions, mock_deployment_details, codecommit_event):
+def test_codecommit_listener_success(
+    mock_boto3_clients,
+    mock_time,
+    mock_util_functions,
+    mock_deployment_details,
+    codecommit_event,
+):
     """
     Test successful processing of CodeCommit event.
 
@@ -275,7 +290,9 @@ def test_codecommit_listener_empty_records():
     assert len(response["Responses"]) == 0
 
 
-def test_codecommit_listener_multiple_records(mock_boto3_clients, mock_time, mock_util_functions, mock_deployment_details):
+def test_codecommit_listener_multiple_records(
+    mock_boto3_clients, mock_time, mock_util_functions, mock_deployment_details
+):
     """
     Test processing of multiple CodeCommit records in single event.
 
