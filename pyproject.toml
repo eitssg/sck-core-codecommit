@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sck-core-codecommit"
-version = "0.0.7"
+version = "0.0.8"
 description = "Core automstion codecommit listener"
 authors = ["James Barwick <jbarwick@me.com>"]
 license = "MIT"
@@ -17,8 +17,8 @@ python = "^3.12"
 requests = "^2.32.3"
 urllib3 = "^2.2.3"
 boto3 = ">=1.39.9"
-sck-core-framework = "^0.0.7"
-sck-core-api = "^0.0.7"
+sck-core-framework = "^0.0.8"
+sck-core-api = "^0.0.8"
 
 [[tool.poetry.source]]
 name = "nexus"
