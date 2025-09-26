@@ -1,5 +1,5 @@
 from .listener import handler
 
-__version__ = "0.0.11-pre.2+a0305e0"
+__version__ = "0.1.2-pre.1+f78cb2d"
 
 __all__ = ["handler"]
