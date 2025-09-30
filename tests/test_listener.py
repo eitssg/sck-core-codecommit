@@ -44,9 +44,7 @@ start_build_response = {
             "type": "LINUX_CONTAINER",
             "image": "aws/codebuild/standard:4.0",
             "computeType": "BUILD_GENERAL1_SMALL",
-            "environmentVariables": [
-                {"name": "ENV_VAR_NAME", "value": "value", "type": "PLAINTEXT"}
-            ],
+            "environmentVariables": [{"name": "ENV_VAR_NAME", "value": "value", "type": "PLAINTEXT"}],
         },
         "logs": {
             "groupName": "/aws/codebuild/my-project",
@@ -158,12 +156,13 @@ def mock_util_functions():
     :yields: Dictionary of mocked utility functions
     :rtype: dict
     """
-    with patch(
-        "core_framework.common.get_bucket_name",
-        return_value="test-core-automation-master",
-    ) as mock_bucket, patch(
-        "core_framework.common.get_region", return_value="us-west-2"
-    ) as mock_region:
+    with (
+        patch(
+            "core_framework.common.get_bucket_name",
+            return_value="test-core-automation-master",
+        ) as mock_bucket,
+        patch("core_framework.common.get_region", return_value="us-west-2") as mock_region,
+    ):
         yield {"get_bucket_name": mock_bucket, "get_region": mock_region}
 
 
@@ -290,9 +289,7 @@ def test_codecommit_listener_empty_records():
     assert len(response["Responses"]) == 0
 
 
-def test_codecommit_listener_multiple_records(
-    mock_boto3_clients, mock_time, mock_util_functions, mock_deployment_details
-):
+def test_codecommit_listener_multiple_records(mock_boto3_clients, mock_time, mock_util_functions, mock_deployment_details):
     """
     Test processing of multiple CodeCommit records in single event.
 

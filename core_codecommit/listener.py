@@ -98,20 +98,12 @@ def __get_new_build_number(deployment: DeploymentDetails) -> str:
     The parameter value is the current timestamp in milliseconds.
     The returned build number is the parameter version, not the timestamp.
     """
-    param_name = "/{}/{}/{}/build_time".format(
-        deployment.portfolio, deployment.app, deployment.branch_short_name
-    )
+    param_name = "/{}/{}/{}/build_time".format(deployment.portfolio, deployment.app, deployment.branch_short_name)
     current_time = str(int(round(time.time() * 1000)))
 
     client = boto3.client("ssm")
-    response = client.put_parameter(
-        Name=param_name, Value=current_time, Type="String", Overwrite=True
-    )
-    log.info(
-        "New build number param_name={}, current_time={}, response={}".format(
-            param_name, current_time, response
-        )
-    )
+    response = client.put_parameter(Name=param_name, Value=current_time, Type="String", Overwrite=True)
+    log.info("New build number param_name={}, current_time={}, response={}".format(param_name, current_time, response))
     return str(response["Version"])
 
 
@@ -290,7 +282,5 @@ def handler(event: dict, context: Any) -> dict:
         return {"Responses": responses}
 
     except Exception as e:
-        log.error(
-            "Error processing CodeCommit event: {}".format(e)
-        )  # Fixed: use log.error instead of print
+        log.error("Error processing CodeCommit event: {}".format(e))  # Fixed: use log.error instead of print
         raise e
