@@ -16,4 +16,4 @@
 ## Contradiction Detection
 - Check against `../sck-core-ui/docs/backend-code-style.md` and root precedence.
 - If conflicting, respond with a warning, alignment options, and a concrete example.
-- Example: "Using non-pinned AWS SDK versions conflicts with reproducibility guidance; pin versions in pyproject/poetry."
+- Example: "Using non-pinned AWS SDK versions conflicts with reproducibility guidance; pin versions in pyproject/uv."
