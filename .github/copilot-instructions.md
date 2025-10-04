@@ -1,5 +1,8 @@
 # Copilot Instructions (Submodule: sck-core-codecommit)
 
+## Plan → Approval → Execute (Mandatory)
+Submit a plan for non-trivial actions (Git event processors, dependency adjustments) before executing.
+
 - Tech: Python package (AWS CodeCommit helpers).
 - Precedence: Local first, then root docs at `../../.github/...`.
 - Backend conventions: `../sck-core-ui/docs/backend-code-style.md` for S3/Lambda standards.
