@@ -2,12 +2,12 @@
 name = "sck-core-codecommit"
 version = "1.3.0"
 description = "Core automation codecommit listener"
-authors = [{name="James Barwick",email="jbarwick@eits.com.sg"}]
+authors = [{ name = "James Barwick", email = "jbarwick@eits.com.sg" }]
 license = "MIT"
 readme = "README.md"
-maintainers = [{name="James Barwick",email="jbarwick@eits.com.sg"}]
+maintainers = [{ name = "James Barwick", email = "jbarwick@eits.com.sg" }]
 keywords = ["sck", "core", "aws", "cloud", "automation"]
-requires-python=">=3.11,<3.13"
+requires-python = ">=3.11,<3.13"
 
 dependencies = [
     "boto3 (>=1.39.7,<1.50.0)",
